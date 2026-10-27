@@ -77,6 +77,13 @@ int main() {
     });
 
     // ---- 9. Роуты ----
+
+
+    if (!svr.set_mount_point("/", "./frontend")) {
+        std::cerr << "Frontend folder not found" << std::endl;
+        return 1;
+    }
+
     Auth::init_routes(svr);
     Public::init_routes(svr);
     Example::init_routes(svr);      
